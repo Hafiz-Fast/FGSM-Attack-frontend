@@ -1,167 +1,125 @@
-.page {
-  --gray-rgb: 0, 0, 0;
-  --gray-alpha-200: rgba(var(--gray-rgb), 0.08);
-  --gray-alpha-100: rgba(var(--gray-rgb), 0.05);
+/* page.module.css */
 
-  --button-primary-hover: #383838;
-  --button-secondary-hover: #f2f2f2;
-
-  display: grid;
-  grid-template-rows: 20px 1fr 20px;
-  align-items: center;
-  justify-items: center;
-  min-height: 100svh;
-  padding: 80px;
-  gap: 64px;
-  font-family: var(--font-geist-sans);
-}
-
-@media (prefers-color-scheme: dark) {
-  .page {
-    --gray-rgb: 255, 255, 255;
-    --gray-alpha-200: rgba(var(--gray-rgb), 0.145);
-    --gray-alpha-100: rgba(var(--gray-rgb), 0.06);
-
-    --button-primary-hover: #ccc;
-    --button-secondary-hover: #1a1a1a;
-  }
-}
-
-.main {
+.container {
+  min-height: 100vh;
   display: flex;
-  flex-direction: column;
-  gap: 32px;
-  grid-row-start: 2;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #8B0000, #FF0000, #FF4C4C);
+  font-family: system-ui, sans-serif;
+  padding: 20px;
 }
 
-.main ol {
-  font-family: var(--font-geist-mono);
-  padding-left: 0;
-  margin: 0;
-  font-size: 14px;
-  line-height: 24px;
-  letter-spacing: -0.01em;
-  list-style-position: inside;
+.card {
+  background: white;
+  border-radius: 16px;
+  padding: 32px;
+  max-width: 800px;
+  width: 100%;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+  text-align: center;
 }
 
-.main li:not(:last-of-type) {
-  margin-bottom: 8px;
+.title {
+  color: #B22222;
+  margin-bottom: 24px;
 }
 
-.main code {
-  font-family: inherit;
-  background: var(--gray-alpha-100);
-  padding: 2px 4px;
-  border-radius: 4px;
+.uploadLabel {
   font-weight: 600;
 }
 
-.ctas {
-  display: flex;
-  gap: 16px;
-}
-
-.ctas a {
-  appearance: none;
-  border-radius: 128px;
-  height: 48px;
-  padding: 0 20px;
-  border: 1px solid transparent;
-  transition:
-    background 0.2s,
-    color 0.2s,
-    border-color 0.2s;
+.uploadInput {
+  display: block;
+  margin: 12px auto;
+  border: 1px solid #ccc;
+  padding: 8px;
+  border-radius: 6px;
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+}
+
+.epsilonLabel {
+  font-weight: 600;
+}
+
+.epsilonValue {
+  color: #B22222;
+}
+
+.slider {
+  width: 80%;
+  margin-top: 10px;
+}
+
+.button {
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  background: #B22222;
+  color: white;
+  font-weight: 600;
+  border: none;
+  transition: 0.3s;
+}
+
+.buttonDisabled {
+  background: #aaa;
+  cursor: not-allowed;
+}
+
+.error {
+  margin-top: 12px;
+  color: crimson;
+  font-weight: 600;
+}
+
+.resultContainer {
+  margin-top: 24px;
+}
+
+.attackStatus {
   font-size: 16px;
-  line-height: 20px;
-  font-weight: 500;
+  margin-bottom: 12px;
 }
 
-a.primary {
-  background: var(--foreground);
-  color: var(--background);
-  gap: 8px;
+.predInfo {
+  margin-bottom: 20px;
 }
 
-a.secondary {
-  border-color: var(--gray-alpha-200);
-  min-width: 158px;
-}
-
-.footer {
-  grid-row-start: 3;
+.imagesWrapper {
   display: flex;
-  gap: 24px;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
-.footer a {
-  display: flex;
-  align-items: center;
-  gap: 8px;
+.imageCard {
+  text-align: center;
+  background: #f8f8f8;
+  padding: 12px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
-.footer img {
-  flex-shrink: 0;
+.imageCard img {
+  width: 250px;
+  height: 250px;
+  object-fit: contain;
+  border-radius: 12px;
+  margin-top: 8px;
 }
 
-/* Enable hover only on non-touch devices */
-@media (hover: hover) and (pointer: fine) {
-  a.primary:hover {
-    background: var(--button-primary-hover);
-    border-color: transparent;
-  }
-
-  a.secondary:hover {
-    background: var(--button-secondary-hover);
-    border-color: transparent;
-  }
-
-  .footer a:hover {
-    text-decoration: underline;
-    text-underline-offset: 4px;
-  }
+.success {
+  color: #006400; /* dark green */
+  font-weight: 600;
 }
 
-@media (max-width: 600px) {
-  .page {
-    padding: 32px;
-    padding-bottom: 80px;
-  }
-
-  .main {
-    align-items: center;
-  }
-
-  .main ol {
-    text-align: center;
-  }
-
-  .ctas {
-    flex-direction: column;
-  }
-
-  .ctas a {
-    font-size: 14px;
-    height: 40px;
-    padding: 0 16px;
-  }
-
-  a.secondary {
-    min-width: auto;
-  }
-
-  .footer {
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-  }
+.failure {
+  color: #8B0000; /* dark red */
+  font-weight: 600;
 }
 
-@media (prefers-color-scheme: dark) {
-  .logo {
-    filter: invert();
-  }
+.epsilonValue {
+  color: #8B0000; /* already your dark crimson */
+  font-weight: 600;
 }
